@@ -61,6 +61,17 @@
     margin-top: 0px;
   }
 
+  .create_post_btn {
+    background-color: #11bf37;
+    color: #fff;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
   @media screen and (max-width: 800px) {
     .post-list {
       grid-template-columns: 1fr;
