@@ -1,24 +1,44 @@
-import logo from './logo.svg';
+import React, {  useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Header from './Components/Header/Header';
+import Home from './Components/Home/Home';
+import CreatePost from './Components/CreatePost/CreatePost';
+import ShowFullPost from './Components/ShowFullPost/ShowFullPost';
+import Breadcrumbs from './Components/BreadCrumbs/Breadcrumbs';
 
 function App() {
+  const [posts, setPosts] = useState([]);
+  const [showPost, setShowPost] = useState("");
+
+  let index = posts.length;
+  const AddPost = (title, content) => {
+    index++;
+    setPosts((prevPosts) => [...prevPosts, { id: index, title: title, content: content }]);
+  }
+
+  const showingPost = (singlePost) => {
+    setShowPost(singlePost);
+    // console.log(singlePost);
+  }
+
+  const deletePost = (id) => {
+      setPosts(posts.filter((post) => post.id !== id));
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <Breadcrumbs />
+        <Routes>
+          <Route path="/" element={<Home posts={posts} showingPost={showingPost} />} />
+          <Route path="/create-post" element={<CreatePost AddPost={AddPost} />} />
+          <Route path="/show-post" element={<ShowFullPost showPost={showPost} deletePost={deletePost} />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

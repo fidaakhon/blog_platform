@@ -1,0 +1,32 @@
+/* Breadcrumbs.css */
+
+/* nav {
+    background-color: #f0f0f0;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+  } */
+  
+  ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    margin-right: 10px;
+  }
+  
+  a {
+    /* text-decoration: none; */
+    /* color: #007bff; */
+    /* font-weight: bold; */
+    transition: color 0.3s;
+  }
+  
+  a:hover {
+    color: #0056b3;
+  }
+  
+
+  
