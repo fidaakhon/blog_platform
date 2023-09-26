@@ -34,6 +34,7 @@ function App() {
         <Breadcrumbs />
         <Routes>
           <Route path="/" element={<Home posts={posts} showingPost={showingPost} />} />
+          <Route path="/blog_platform" element={<Home posts={posts} showingPost={showingPost} />} />
           <Route path="/create-post" element={<CreatePost AddPost={AddPost} />} />
           <Route path="/show-post" element={<ShowFullPost showPost={showPost} deletePost={deletePost} />} />
         </Routes>
